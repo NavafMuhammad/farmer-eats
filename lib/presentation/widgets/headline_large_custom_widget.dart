@@ -1,3 +1,4 @@
+import 'package:farmer_eats/core/constants.dart';
 import 'package:flutter/material.dart';
 
 class HeadlineLargeCustomWidget extends StatelessWidget {
@@ -11,7 +12,8 @@ class HeadlineLargeCustomWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: Theme.of(context).textTheme.headlineLarge,
+      // style: Theme.of(context).textTheme.headlineLarge,
+      style: headlineLarge,
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:farmer_eats/core/color_constants.dart';
-import 'package:farmer_eats/presentation/onboarding_screen/models/onboarding_model.dart';
+import 'package:farmer_eats/core/constants.dart';
+import 'package:farmer_eats/presentation/onboarding/models/onboarding_model.dart';
 import 'package:farmer_eats/presentation/widgets/login_textbutton_custom_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -26,7 +27,7 @@ class OnboardingScreen extends StatelessWidget {
                   width: size.width,
                   top: 20,
                   child: SizedBox(
-                    height: size.width * 0.96,
+                    height: size.width * 1,
                     child: Image.asset(
                       fit: BoxFit.cover,
                       contentList[i].image,
@@ -37,7 +38,7 @@ class OnboardingScreen extends StatelessWidget {
                   bottom: 0,
                   child: Container(
                     width: size.width,
-                    height: size.width * 1.11,
+                    height: size.width * 1.08,
                     decoration: const BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(
@@ -48,9 +49,7 @@ class OnboardingScreen extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(contentList[i].title,
-                              style:
-                                  Theme.of(context).textTheme.headlineMedium),
+                          Text(contentList[i].title, style: headlineMedium),
 
                           Text(
                             contentList[i].desciption,
@@ -84,13 +83,13 @@ class OnboardingScreen extends StatelessWidget {
                                     Radius.circular(30))),
                             child: Center(
                                 child: Text(contentList[i].buttonText,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .titleLarge!
-                                        .copyWith(color: Colors.white))),
+                                    style: titleLarge.copyWith(
+                                        color: Colors.white))),
                           ),
 
-                          const LoginTextButtonCustomWidget()
+                           LinkTextCustomWidget(label: "Login", ontap: (){
+                            Navigator.pushNamed(context, "/loginScreen");
+                           })
                         ],
                       ),
                     ),
@@ -105,5 +104,3 @@ class OnboardingScreen extends StatelessWidget {
     );
   }
 }
-
-

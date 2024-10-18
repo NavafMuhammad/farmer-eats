@@ -1,9 +1,12 @@
 import 'package:farmer_eats/core/asset_constants.dart';
 import 'package:farmer_eats/core/color_constants.dart';
 import 'package:farmer_eats/core/constants.dart';
+import 'package:farmer_eats/presentation/widgets/appbar_custom_widget.dart';
 import 'package:farmer_eats/presentation/widgets/headline_large_custom_widget.dart';
+import 'package:farmer_eats/presentation/widgets/labeltext_small_custom_widget.dart';
 import 'package:farmer_eats/presentation/widgets/login_option_custom_widget.dart';
 import 'package:farmer_eats/presentation/widgets/main_button_custom_widget.dart';
+import 'package:farmer_eats/presentation/widgets/text_row_custom_widget.dart';
 import 'package:farmer_eats/presentation/widgets/textfileld_custom_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -12,20 +15,11 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        automaticallyImplyLeading: false,
-        title: Padding(
-          padding: const EdgeInsets.only(left: 15),
-          child: Text(
-            "FarmerEats",
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
-        ),
-      ),
-      body: const Padding(
-        padding: EdgeInsets.all(30),
+    return const Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: AppBarCustomWidget(),
+      body: Padding(
+        padding: kPadding30,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -52,20 +46,12 @@ class SectionOne extends StatelessWidget {
       children: [
         const HeadlineLargeCustomWidget(text: "Welcome back!"),
         kHeight10,
-        Row(
-          children: [
-            const Text(
-              "New here?",
-              style: TextStyle(color: kLightTextColor),
-            ),
-            TextButton(
-              onPressed: () {},
-              child: const Text(
-                "Create account",
-                style: TextStyle(color: kPrimaryColor),
-              ),
-            ),
-          ],
+        TextRowCustomWidget(
+          text: "New here?",
+          buttonText: "Create account",
+          onTap: () {
+            Navigator.pushNamed(context, "/createAccountScreen");
+          },
         ),
       ],
     );
@@ -77,25 +63,32 @@ class SectionTwo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        TextFieldCustomWidget(icon: emailIcon, hintText: "Email Address"),
+       const TextFieldCustomWidget(
+            icon: emailIcon, hintText: "Email Address"),
         TextFieldCustomWidget(
           icon: passwordIcon,
           hintText: "Password",
           obscureText: true,
-          suffixIcon: Padding(
+          suffixIcon: const Padding(
             padding: EdgeInsets.only(top: 14, right: 16),
             child: Text(
               "Forgot?",
               style: TextStyle(color: kPrimaryColor),
             ),
           ),
+          onTapSuffix: () {
+            Navigator.pushNamed(context, "/forgotPasswordScreen");
+          },
         ),
-        SizedBox(
-          height: 15,
+        kHeight15,
+        MainButtonCustomWidget(
+          text: "Login",
+          ontap: () {
+            Navigator.pushNamed(context, "/finalScreen");
+          },
         ),
-        MainButtonCustomWidget(text: "Login"),
       ],
     );
   }
@@ -106,19 +99,11 @@ class SectionThree extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
-        Center(
-          child: Text(
-            "or login with",
-            style: Theme.of(context)
-                .textTheme
-                .labelSmall!
-                .copyWith(color: kLightTextColor),
-          ),
-        ),
+        LabelTextSmallCustomWidget(labelText: "or login with"),
         kHeight35,
-        const LoginOptionCustomWidget()
+        LoginOptionCustomWidget()
       ],
     );
   }

@@ -32,6 +32,7 @@ dependencies:
     sdk: flutter
   smooth_page_indicator:
   flutter_svg: ^2.0.10+1
+  google_fonts:
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -68,6 +69,18 @@ flutter:
     - assets/icons/googleIcon.svg
     - assets/icons/appleIcon.svg
     - assets/icons/facebookIcon.svg
+    - assets/icons/personIcon.svg
+    - assets/icons/phoneIcon.svg
+    - assets/icons/TagIcon.svg
+    - assets/icons/emojiIcon.svg
+    - assets/icons/addressIcon.svg
+    - assets/icons/locationIcon.svg
+    - assets/icons/arrowDownIcon.svg
+    - assets/icons/arrowBackIcon.svg
+    - assets/icons/cameraIcon.svg
+    - assets/icons/onboardingIcon1.svg
+    - assets/icons/onboardingIcon2.svg
+    - assets/icons/onboardingIcon3.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

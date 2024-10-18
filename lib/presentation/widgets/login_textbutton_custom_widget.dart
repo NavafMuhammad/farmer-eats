@@ -1,19 +1,18 @@
-import 'package:farmer_eats/presentation/login_screen/login_screen.dart';
 import 'package:flutter/material.dart';
 
-class LoginTextButtonCustomWidget extends StatelessWidget {
-  const LoginTextButtonCustomWidget({
-    super.key,
-  });
+class LinkTextCustomWidget extends StatelessWidget {
+  final String label;
+  final VoidCallback ontap;
+  const LinkTextCustomWidget(
+      {super.key, required this.label, required this.ontap});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: () => Navigator.of(context)
-            .push(MaterialPageRoute(builder: (ctx) => const LoginScreen())),
-        child: const Text(
-          "Login",
-          style: TextStyle(decoration: TextDecoration.underline),
+        onTap: ontap,
+        child: Text(
+          label,
+          style: const TextStyle(decoration: TextDecoration.underline),
         ));
   }
 }
